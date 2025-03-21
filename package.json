@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --inspect index.js"
-
   },
   "dependencies": {
     "express": "^4.21.2",
     "nodemon": "^3.1.9",
-    "project-1": "file:"
+    "project-1": "file:",
+    "pug": "^3.0.3"
   }
 }

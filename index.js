@@ -4,10 +4,7 @@ require("dotenv").config();
 mongoose.connect(process.env.DATABASE);
 const path = require("path");
 
-const Tour = mongoose.model("Tour", {
-  name: String,
-  vehicle: String,
-});
+const Tour = require("./models/tour.model")
 
 const app = express();
 const port = 3000;

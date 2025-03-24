@@ -3,3 +3,7 @@ extends ../layouts/default.pug
 block main 
     h1 Tour
 
+    ul
+        each item in tourList
+            li #{item.name} phuong tien #{item.vehicle}
+

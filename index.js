@@ -1,13 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://dat2004306:v0y9jJQVtlpMNkRH@cluster0.ngw6i.mongodb.net/tour-management"
-);
+require("dotenv").config();
+mongoose.connect(process.env.DATABASE);
 const path = require("path");
 
-const Tour = mongoose.model("Tour", { 
+const Tour = mongoose.model("Tour", {
   name: String,
-  vehicle: String
+  vehicle: String,
 });
 
 const app = express();
@@ -31,7 +30,7 @@ app.get("/tours", async (req, res) => {
 
   res.render("client/pages/tour-list", {
     pageTitle: "Danh sach tour",
-    tourList: tourList
+    tourList: tourList,
   });
 });
 

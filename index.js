@@ -1,7 +1,7 @@
 const express = require("express");
 
 require("dotenv").config();
-const databse = require("./config/databse.config");
+const database = require("./config/database.config");
 const path = require("path");
 const clientRoutes = require("./routes/client/index.route");
 
@@ -13,7 +13,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
 // ket noi databse
-databse.connect();
+database.connect();
 
 // thiet lap duong dan
 app.use("/", clientRoutes);

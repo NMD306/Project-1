@@ -1,10 +1,9 @@
 const express = require("express");
-const mongoose = require("mongoose");
+
 require("dotenv").config();
-mongoose.connect(process.env.DATABASE);
+const databse = require("./config/databse.config");
 const path = require("path");
-
-
+const clientRoutes = require("./routes/client/index.route");
 
 const app = express();
 const port = 3000;
@@ -13,12 +12,14 @@ const port = 3000;
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+// ket noi databse
+databse.connect();
+
+// thiet lap duong dan
+app.use("/", clientRoutes);
+
 // thiet lap cho static files for FE
 app.use(express.static(path.join(__dirname, "public")));
-
-
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
